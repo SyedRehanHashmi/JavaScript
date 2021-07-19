@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration JS</title>
+</head>
+<script>
+    function setstorevalue() {
+        var namedata = document.getElementById("name");
+        var passworddata = document.getElementById("password");
+        
+        sessionStorage.setItem("username", namedata.value);
+        sessionStorage.setItem("userpassword", passworddata.value);
+    }
+
+    function getstorevalue() {
+        var namedata = document.getElementById("name");
+        var password = document.getElementById("password");
+
+        namedata.value=sessionStorage.getItem("username");
+        password.value = sessionStorage.getItem("userpassword");
+    }
+</script>
+
+<body>
+    <style>
+        body {
+            padding-left: 400px;
+            font-size: 20px;
+            background-color: skyblue;
+        }
+    </style>
+
+    <body>
+        <h2>Form fillup</h2>
+        <hr>
+
+        <form>
+            <label>Name</label>
+            <input type="text" placeholder="Enter Name" id="name"> <br> <br>
+
+            <label>Password</label>
+            <input id="password" type="password" placeholder="Enter Password"> <br> <br>
+
+            <label>Confirm Password</label>
+            <input type="password" placeholder="Confirm Password"> <br> <br>
+
+            Gender: <input type="radio" name="Gender">Male
+            <input type="radio" name="Gender">Female <br> <br>
+
+            Interests: <input type="checkbox" name=" ">HTML
+            <input type="checkbox" name=" ">CSS
+            <input type="checkbox" name=" ">JavaScript
+            <input type="checkbox" name=" ">React
+            <br> <br>
+
+            Date Of Birth:
+            <input type="date" name="">
+            <br> <br>
+            <hr>
+            <button onclick="setstorevalue()">Submit</button>
+            <button >Cancel</button>
+
+        </form>
+    </body>
+    <script>
+        getstorevalue();
+    </script>
+
+</html>
