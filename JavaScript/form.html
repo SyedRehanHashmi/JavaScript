@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <script>
+        function setsave(){
+            sessionStorage.setItem("user",document.getElementById("name").value)
+            sessionStorage.setItem("password",document.getElementById("pass").value)
+            sessionStorage.setItem("changecolor",document.getElementById("color").value)
+            getsave()
+        }
+        function getsave(){
+            document.getElementById("name").value=sessionStorage.getItem("user")
+            document.getElementById("pass").value=sessionStorage.getItem("password")
+            document.getElementById("color").value=sessionStorage.getItem("changecolor")
+            document.getElementById("body").style=`background-color:${sessionStorage.getItem("changecolor")}`        }
+    </script>
+</head>
+<body id="body">
+    <form>
+        <label>name:</label><br><br>
+        <input type="text" id="name"><br><br>
+    </form>
+    <form>
+        <label>password</label><br>
+        <input type="password" id="pass"><br><br>
+    </form>
+
+    <br>
+    <label>color</label>
+    <input type="color" id="color"><br><br>
+    <button onclick="setsave()"> save</button>
+</body>
+<script>
+    getsave()
+</script>
+</html>
